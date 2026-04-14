@@ -23,13 +23,14 @@
   },
   "//": "START EXTENSION ATTRIBUTES",
   "name": "vscode-create-bun",
-  "version": "0.0.1",
-  "description": "Extension description",
-  "displayName": "Extension display name",
+  "version": "1.0.0",
+  "description": "Easily create new Bun projects from your editor. This extension adds a 'Create Bun Project' command that walks through 'bun init' CLI process without needing to use a terminal.",
+  "displayName": "Create Bun Project",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOURNAME"
+    "url": "https://github.com/mark-gl/vscode-create-bun"
   },
+  "publisher": "MarkGatland",
   "contributes": {
     "commands": [
       {
