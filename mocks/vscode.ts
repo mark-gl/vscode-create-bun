@@ -4073,9 +4073,82 @@
 // interface Thenable<T> extends PromiseLike<T> {}
 
 export const commands = {
-  registerCommand: () => {},
+  registerCommand: (
+    _command: string,
+    _callback: (...args: unknown[]) => unknown,
+  ) => ({
+    dispose: () => {},
+  }),
+  executeCommand: async <T = unknown>(
+    _command: string,
+    ..._args: unknown[]
+  ): Promise<T> => undefined as T,
+};
+
+export const Uri = {
+  file: (filePath: string) => ({
+    fsPath: filePath,
+  }),
+};
+
+export const ProgressLocation = {
+  Notification: 15,
+};
+
+export type UriType = {
+  fsPath: string;
+};
+
+export type Disposable = {
+  dispose: () => void;
+};
+
+export type ExtensionContext = {
+  subscriptions: Disposable[];
+};
+
+type OpenDialogOptions = {
+  canSelectFiles?: boolean;
+  canSelectFolders?: boolean;
+  canSelectMany?: boolean;
+  openLabel?: string;
+};
+
+type InputBoxOptions = {
+  prompt?: string;
+  placeHolder?: string;
+  validateInput?: (value: string) => string | undefined;
+};
+
+type QuickPickOptions = {
+  title?: string;
+  placeHolder?: string;
+};
+
+type ProgressOptions = {
+  location: number;
+  title: string;
 };
 
 export const window = {
-  showInformationMessage: () => {},
+  showInformationMessage: (_message: string) => {},
+  showErrorMessage: (_message: string) => {},
+  showOpenDialog: async (
+    _options: OpenDialogOptions,
+  ): Promise<UriType[] | undefined> => undefined,
+  showInputBox: async (
+    _options: InputBoxOptions,
+  ): Promise<string | undefined> => undefined,
+  showQuickPick: async <T extends { label: string; value: unknown }>(
+    _items: T[],
+    _options: QuickPickOptions,
+  ): Promise<T | undefined> => undefined,
+  withProgress: async <T>(
+    _options: ProgressOptions,
+    task: (progress: unknown, token: unknown) => Promise<T>,
+  ): Promise<T> => task({}, {}),
+  createTerminal: () => ({
+    show: () => {},
+    sendText: () => {},
+  }),
 };
