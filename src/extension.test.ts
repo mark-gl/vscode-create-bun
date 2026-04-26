@@ -56,7 +56,7 @@ describe("extension", () => {
         .calls[0][0];
       const callback = (vscode.commands.registerCommand as jest.Mock).mock
         .calls[0][1] as () => Promise<void>;
-      expect(command).toBe("vscode-create-bun.createBunProject");
+      expect(command).toBe("create-bun.createBunProject");
 
       await callback();
 

@@ -16,7 +16,7 @@ const DEFAULT_TEMPLATE_CHOICE: BunTemplateChoice = {
 
 export const activate = (context: vscode.ExtensionContext) => {
   const createBunProjectDisposable = vscode.commands.registerCommand(
-    "vscode-create-bun.createBunProject",
+    "create-bun.createBunProject",
     async () => {
       const getBunTemplateLabel = (flag: string): string => {
         const trimmedFlag = flag.startsWith("--") ? flag.slice(2) : flag;
