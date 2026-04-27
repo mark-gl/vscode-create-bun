@@ -1,6 +1,5 @@
 {
   "main": "./dist/extension.cjs",
-  "module": "index.ts",
   "dependencies": {
     "@types/vscode": "^1.86.0"
   },
@@ -12,7 +11,6 @@
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
-  "type": "module",
   "scripts": {
     "dev": "echo 'Open this directory in VSCode and then run your extension with F5 or `Run and Debug > Run Extension`!'",
     "build": "bun run ./scripts/build-with-esbuild.ts",
@@ -23,7 +21,7 @@
   },
   "//": "START EXTENSION ATTRIBUTES",
   "name": "create-bun",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Easily create new Bun projects from your editor. This extension adds a 'Create Bun Project' command that walks through 'bun init' CLI process without needing to use a terminal.",
   "displayName": "Create Bun Project command",
   "keywords": [
